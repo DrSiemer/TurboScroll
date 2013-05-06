@@ -12,19 +12,19 @@ $(document).ready(function() {
   turboscroll.crop = parseInt(turboscroll.ref.css('height'), 10);
 
   // Get overflow height
-	content.ref.css('height', 'auto');
+  content.ref.css('height', 'auto');
   turboscroll.ref.css('height', 'auto');
-	content.overflow = content.ref.height() - turboscroll.crop;
+  content.overflow = content.ref.height() - turboscroll.crop;
   turboscroll.overflow = turboscroll.ref.height() - content.crop;
   turboscroll.ref.css('height', content.crop+'px');
-	content.ref.css('height', turboscroll.crop+'px');
+  content.ref.css('height', turboscroll.crop+'px');
 
   // Track mouse
   content.ref.hover(function() { content.mouse = true; }, function() { content.mouse = false; });
   turboscroll.ref.hover(function() { turboscroll.mouse = true; }, function() { turboscroll.mouse = false; });
 
   // Scroll content on scrolling turboScroll zone
-	turboscroll.ref.scroll(function()	{
+  turboscroll.ref.scroll(function() {
     if (turboscroll.mouse == true) {
       turboscroll.pos = turboscroll.ref.scrollTop() / turboscroll.overflow;
       content.ref.scrollTop(turboscroll.pos * content.overflow);
@@ -32,7 +32,7 @@ $(document).ready(function() {
   });
 
   // Scroll turboScroll zone on scrolling content
-	content.ref.scroll(function () {
+  content.ref.scroll(function () {
     if (content.mouse == true) {
       content.pos = content.ref.scrollTop() / content.overflow;
       turboscroll.ref.scrollTop(content.pos * turboscroll.overflow);
